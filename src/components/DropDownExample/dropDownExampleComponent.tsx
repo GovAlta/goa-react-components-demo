@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   cities,
   City,
@@ -25,32 +25,24 @@ const DropDownExampleComponent = () => {
     <div style={{ display: "flex" }}>
       <div style={{ display: "flex" }}>
         <div>
-          {listOfProvicnes?.length > 0 && (
-            <ProvinceComponent
-              provinces={listOfProvicnes}
-              selectedProvinceCode={selectedProvinceCode}
-              setSelectedProvinceCode={setSelectedProvinceCode}
-            />
-          )}
+          <ProvinceComponent
+            provinces={listOfProvicnes}
+            setSelectedProvinceCode={setSelectedProvinceCode}
+          />
         </div>
         <div>
-          {listOfCities?.length > 0 && (
-            <CitiesComponent
-              cities={listOfCities}
-              selectedProvinceCode={selectedProvinceCode}
-            />
-          )}
+          <CitiesComponent
+            cities={listOfCities}
+          />
         </div>
       </div>
       <div>
-        {listOfCities?.length > 0 && (
-          <>
-            <span>updated cities list to prove that cities gets updated</span>
-            {listOfCities.map((city, index) => (
-              <div style={{ display: "flex" }}>{city.name}</div>
-            ))}
-          </>
-        )}
+        <>
+          <span>updated cities list to prove that cities gets updated</span>
+          {listOfCities.map((city, index) => (
+            <div style={{ display: "flex" }}>{city.name}</div>
+          ))}
+        </>
       </div>
     </div>
   );
